@@ -12,6 +12,8 @@ import utils.XMLToObject;
 
 import java.util.concurrent.TimeUnit;
 
+import static java.lang.Thread.sleep;
+
 public class Task4Tests {
 
     private static final long DEFAULT_WAITING_TIME = 90;
@@ -49,7 +51,8 @@ public class Task4Tests {
     }
 
     @Test(dataProvider = "data")
-    public void task4Test(String itemName, int limit) {
+    public void task4Test(String itemName, int limit) throws InterruptedException {
+        sleep(4190);//to escape CAPTCHA
         getHomePage().enterTextToSearchField(itemName);
         getSearchResultPage().waitForPageLoadComplete(DEFAULT_WAITING_TIME);
         getSearchResultPage().addFirstProduct();

@@ -14,8 +14,7 @@ public class XMLToObject {
             JAXBContext jaxbContext = JAXBContext.newInstance(FilterRozetka.class);
 
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-            FilterRozetka filterRozetka = (FilterRozetka) jaxbUnmarshaller.unmarshal(file);
-            return filterRozetka;
+            return (FilterRozetka) jaxbUnmarshaller.unmarshal(file);
         } catch (JAXBException e) {
             e.printStackTrace();
         }

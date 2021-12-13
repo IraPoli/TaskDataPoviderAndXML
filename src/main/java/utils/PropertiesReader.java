@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class PropertiesReader {
-    private static Logger logger = LogManager.getLogger(PropertiesReader.class);//Logger.getLogger(PropertiesReader.class);
+    private static final Logger logger = LogManager.getLogger(PropertiesReader.class);//Logger.getLogger(PropertiesReader.class);
 
     Properties property = new Properties();
 
@@ -17,6 +17,7 @@ public class PropertiesReader {
         FileInputStream fileInputStream;
         try {
             fileInputStream = new FileInputStream("src/main/resources/config.properties");
+            logger.debug("file config.properties exist");
             property.load(fileInputStream);
             fileInputStream.close();
         } catch (FileNotFoundException e) {
